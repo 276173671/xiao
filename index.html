@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小藏家</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body ng-app="app">
+<div ng-view class="box"></div>
+<div class="footer">
+    <ul>
+        <li><a href="#/"><img src="img/footer1.png" alt=""><br>首页</a></li>
+        <li><a href="#/cate"><img src="img/footer2.png" alt=""><br>分类</a></li>
+        <li><a href="#/user"><img src="img/footer3.png" alt=""><br>我</a></li>
+    </ul>
+</div>
+
+<script>
+  let app = angular.module('app', ['ngRoute'])
+  app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/', {
+      templateUrl: 'list.html', controller: function ($scope, $http) {
+        $http.get('list.json').success(function (data) {
+          $scope.data = data
+        })
+      }
+    })
+      .when('/list-detail/:id', {
+        templateUrl: 'list-detail.html', controller: function ($scope, $http, $location) {
+          let id = $location.url().slice(13)
+          console.log(id)
+          let jsonUrl = id + '.json'
+          $http.get(jsonUrl).success(function (data) {
+            $scope.data = data
+          })
+          $scope.showtuwen = function () {
+            $scope.isvisible = true
+            $scope.unvisible = true
+          }
+          $scope.showlun = function () {
+            $scope.isvisible = false
+            $scope.unvisible = false
+
+          }
+        }
+      })
+      .when('/collect', {
+        templateUrl: 'collect.html', controller: function ($scope, $http) {
+          $http.get('collect.json').success(function (data) {
+            $scope.collect = data
+          })
+        }
+      })
+  }])
+  app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+      .when('/cate', {
+        templateUrl: 'cate.html', controller: function ($scope, $http) {
+          $http.get('cate.json').success(function (data) {
+            $scope.cate = data
+          })
+          $scope.showup = false
+          $scope.hidedown = false
+          $scope.down = function ($event) {
+            $scope.hidedown = true
+            $scope.showup = true
+            let img = $event.target
+            $(img).parent().parent().siblings().show()
+          }
+          $scope.up = function ($event) {
+            $scope.hidedown = false
+            $scope.showup = false
+            let img = $event.target
+            $(img).parent().parent().siblings().hide()
+          }
+        }
+      })
+      .when('/user', {
+        templateUrl: 'user.html', controller: function ($scope) {
+          $scope.showCollection = true
+          $scope.showHelp = false
+          $scope.collect = function () {
+            $scope.showCollection = true
+            $scope.showHelp = false
+          }
+          $scope.help = function () {
+            $scope.showCollection = false
+            $scope.showHelp = true
+          }
+        }
+      })
+      .when('/set', {
+        templateUrl: 'set.html', controller: function ($scope) {
+          $scope.sharebox = true
+          $scope.showShare = function () {
+            $scope.sharebox = false
+          }
+          $scope.hideShare = function () {
+            $scope.sharebox = true
+          }
+        }
+      })
+  }])
+</script>
+</body>
+</html>

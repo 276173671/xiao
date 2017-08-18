@@ -1,0 +1,43 @@
+<div class="user">
+    <div class="banner">
+        <img src="img/banner.png"/>
+        <a href="#/set"><img src="img/shezhi.png"/></a>
+    </div>
+    <div class="message">
+        <span class="glyphicon glyphicon-bell">&nbsp;我的消息</span>
+        <span class="glyphicon glyphicon-menu-right"></span>
+    </div>
+    <div class="space"></div>
+    <div class="title">
+        <span ng-click="collect()">喜欢的收藏品</span>
+        <span ng-click="help()">喜欢的攻略</span>
+    </div>
+    <div class="collection" ng-show="showCollection">
+        <div>
+            <p>
+                <img src="img/ciqiglass.png" alt="">
+                &nbsp;
+                <span>
+                    <b>瓷器水杯</b>
+                    <i>2个</i>
+                </span>
+            </p>
+            <span class="glyphicon glyphicon-menu-right right"></span>
+        </div>
+        <div>
+            <p>
+                <img src="img/mu.png"/>
+                &nbsp;
+                <span>
+                    <b>木</b>
+                    <i>2个</i>
+                </span>
+            </p>
+            <span class="glyphicon glyphicon-menu-right right"></span>
+        </div>
+    </div>
+    <div class="help" ng-show="showHelp">
+        <p>景德镇青色瓷器玩具</p>
+        <p>景德镇青色瓷器玩具</p>
+    </div>
+</div>

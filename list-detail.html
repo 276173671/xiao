@@ -1,0 +1,37 @@
+<!--  详情页   -->
+<div ng-repeat="i in data" class="detail">
+    <div class="detail-nav">
+        <a href="#/"><img src="{{i.zuo}}"/></a>
+        <span>{{i.title}}</span>
+        <a href="##"><img src="{{i.fenx}}"/></a>
+    </div>
+    <div class="detail-banner">
+        <img src="{{i.img}}"/>
+    </div>
+    <div class="detail-description">
+        <p><span>{{i.product}}</span></p>
+        <p><span>{{i.price}}</span></p>
+        <p><span>{{i.thing}}</span></p>
+        <p><span>材质:<img src="img/star.png"/></span>&nbsp;<span>工艺：<img src="img/star.png"/></span></p>
+    </div>
+
+    <div class="detail-tab">
+        <a ng-click="showtuwen()">图文介绍</a>
+        <a ng-click="showlun()">评论(1)</a>
+    </div>
+    <div class="tuwen" ng-show="isvisible">
+        <img src="img/banner.jpg"/>
+    </div>
+    <div class="lun" ng-hide="unvisible">
+        <div><img src="img/touxiang.png"/></div>
+        <p>
+            <span>小藏家</span><i>2分钟前</i>
+            <br><br>
+            <b>性价比高,值得收藏 ！</b>
+        </p>
+    </div>
+    <div class="detail-button">
+        <div><img src="img/heart.png"/>喜欢</div>
+        <div>去购买</div>
+    </div>
+</div>

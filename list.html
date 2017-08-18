@@ -1,0 +1,20 @@
+<div class="header">
+    <ul>
+        <li><a href="#/">精品推荐</a></li>
+        <li><a href="#/collect">收藏攻略</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div ng-repeat="i in data">
+        <a href="#/list-detail/{{i.id}}"><img ng-src="{{i.img}}"/></a>
+        <p>{{i.title}}</p>
+        <p>
+            <span>{{i.price}}</span>
+            <span>
+                <img ng-src="{{i.zan}}"/>
+                <i>{{i.people}}</i>
+            </span>
+        </p>
+
+    </div>
+</div>

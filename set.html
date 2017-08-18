@@ -1,0 +1,35 @@
+<div class="config">
+    <div class="config_header">
+        <a href="#/user" class="glyphicon glyphicon-menu-left"></a>
+        <span>设置</span>
+        <a href="#/user"><img src="img/dui.png"/></a>
+    </div>
+    <div class="config_content">
+        <ul>
+            <li ng-click="showShare()"><img src="img/huifenxiang.png"/><span>分享给好友</span></li>
+            <li><img src="img/idea.png"/><span>意见反馈</span></li>
+            <li><img src="img/refresh.png"/><span>检查更新</span></li>
+            <li><img src="img/clear.png"/><span>清理缓存</span></li>
+        </ul>
+    </div>
+    <div class="over"><input type="button" value="退出登录"></div>
+
+    <!-- 分享页面  -->
+    <div ng-hide="sharebox" class="share">
+        <div class="top"></div>
+        <div class="bottom">
+            <ul>
+                <li><img src="img/pyq.png"/><br/>朋友圈</li>
+                <li><img src="img/wx.png"/><br/>微信好友</li>
+                <li><img src="img/QQ.png"/><br/>QQ好友</li>
+                <li><img src="img/QQqzone.png"/><br/>QQ空间</li>
+                <li><img src="img/wb.png"/><br/>新浪微博</li>
+                <li><img src="img/copy.png"/><br/>复制链接</li>
+            </ul>
+            <div class="end">
+                <span ng-click="hideShare()">取消</span>
+            </div>
+        </div>
+    </div>
+
+</div>

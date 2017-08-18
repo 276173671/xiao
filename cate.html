@@ -1,0 +1,26 @@
+<div class="cate">
+    <div class="search">
+        <input type="text" placeholder="搜索" ng-model="searchs"/>
+        <img src="img/search.png"/>
+    </div>
+    <div>
+        <div class="search-content" ng-repeat="i in cate | filter:searchs">
+            <p>
+                <span><img ng-src="{{i.left}}"/> &nbsp;&nbsp;{{i.title}}</span>
+                <span>
+				  <img src="{{i.down}}" ng-click="down($event)" ng-hide="hidedown"/>
+				  <img src="{{i.up}}" ng-show="showup"  ng-click="up($event)"/>
+			</span>
+                <!--<input type="checkbox" ng-model=""/>-->
+            </p>
+            <p style="display: none;">
+                <span>{{i.a}}</span>
+                <span>{{i.b}}</span>
+                <span>{{i.c}}</span>
+                <span>{{i.d}}</span>
+                <span>{{i.e}}</span>
+            </p>
+        </div>
+    </div>
+</div>
+
